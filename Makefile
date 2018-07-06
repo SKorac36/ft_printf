@@ -6,7 +6,7 @@
 #    By: skorac <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/24 09:00:33 by skorac            #+#    #+#              #
-#    Updated: 2018/07/05 11:26:51 by skorac           ###   ########.fr        #
+#    Updated: 2018/07/06 08:52:13 by skorac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ COM  = gcc
 FLAGS = -Wall -Wextra -Werror
 SRC = *.c
 OBJ = $(SRC:.c=.o)
-HEAD = libft.h 
+HEAD = *.h 
 
 $(NAME): $(HEAD)
 	$(COM) -c $(FLAGS) $(SRC) -I $(HEAD)

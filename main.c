@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/05 08:36:47 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/06 12:13:43 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,32 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void pc(char c)
+void	ft_putchar(char c)
 {
     write(1, &c, 1);
 }
 
-void ft_putstr(char *s)
+void	ft_putstr(char *str)
 {
-    s--;
-    while(*++s)
-        write(1, &*s, 1);
+    int i;
+
+	i = 0;
+    while(str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+        
 }
 
-void nb(int n)
+void	ft_putnbr(int n)
 {
-    if(n >= 0 && n <= 9)
-    {
-        pc(n + 48);
-        return ;
-    }
-    nb(n / 10);
-    pc(n % 10 + '0');
+    if(n >= 10)
+	{
+		ft_putnbr(n/10);
+		ft_putnbr(n % 10);
+	}
+	ft_putchar(n + 48);
 }
 
 void ft_printf(const char* format, ...)
@@ -48,13 +53,17 @@ void ft_printf(const char* format, ...)
         if (*format == '%' && *(format + 1) == 'd')
         {
             int i = va_arg(args, int);
-            nb(i);
-
+            ft_putnbr(i);
         }
-        else if(*format == '%' && *(format + 1) == 's')
+		else if(*format == '%' && *(format + 1) == 'c')
+		{
+			char c = va_arg(args, int);
+			ft_putchar(c);
+		}
+		else if(*format == '%' && *(format + 1) == 's')
             ft_putstr(va_arg(args, char *));
         else if (*format && *(format - 1) != '%')
-            pc(*format);
+            ft_putchar(*format);
         ++format;
     }
     va_end(args);
@@ -62,5 +71,7 @@ void ft_printf(const char* format, ...)
 
 int main(void)
 {
-    ft_printf("some bulshit here %d %d some bullshit after %s\n", 3, 5, "hello");
+	ft_printf("i\n");	
+	ft_printf("%d%d%s%c\n", 3, 5, "hello", 'Q');
+	return (0);
 }
