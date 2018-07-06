@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/06 12:13:43 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/06 13:47:14 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,31 @@ void	ft_putstr(char *str)
 
 void	ft_putnbr(int n)
 {
-    if(n >= 10)
+    if (n != 0)
 	{
-		ft_putnbr(n/10);
-		ft_putnbr(n % 10);
+		ft_putnbr(n / 10);
+		n = n % 10 + '0';
+		ft_putchar(n);
 	}
-	ft_putchar(n + 48);
+}
+
+void	ft_putoctal(int n)
+{
+	if (n != 0)
+	{
+		ft_putoctal(n / 8);
+		n = n % 8 + '0';
+		ft_putchar(n) ;
+	}
+}
+
+void	ft_puthex(int n)
+{
+	if (n >= 16)
+		ft_puthex(n / 16);
+	n = n % 16;
+	n += n < 10 ? '0' : 'a' - 10;
+	write(1, &n, 1);
 }
 
 void ft_printf(const char* format, ...)
@@ -51,27 +70,31 @@ void ft_printf(const char* format, ...)
     while (*format != '\0')
     {
         if (*format == '%' && *(format + 1) == 'd')
-        {
-            int i = va_arg(args, int);
-            ft_putnbr(i);
-        }
+			ft_putnbr(va_arg(args, int));
 		else if(*format == '%' && *(format + 1) == 'c')
-		{
-			char c = va_arg(args, int);
-			ft_putchar(c);
-		}
+			ft_putchar(va_arg(args, int));
 		else if(*format == '%' && *(format + 1) == 's')
             ft_putstr(va_arg(args, char *));
-        else if (*format && *(format - 1) != '%')
+		else if (*format == '%' && *(format + 1) == '%')
+			ft_putchar('%');
+		else if (*format == '%' && *(format + 1) == 'o')
+			ft_putoctal(va_arg(args, int));
+		else if (*format && *(format - 1) != '%')
             ft_putchar(*format);
         ++format;
-    }
+   	 	}
+
     va_end(args);
 }
 
+
 int main(void)
 {
-	ft_printf("i\n");	
-	ft_printf("%d%d%s%c\n", 3, 5, "hello", 'Q');
+	ft_printf("%o\n", 350);
+	printf("%o\n", 350);
+	ft_puthex(233);
+	ft_putchar('\n');
+	printf("%x\n", 233);
+	ft_printf("%%%d%d%s%c\n", 0, 5, "hello", 'Q');
 	return (0);
 }
