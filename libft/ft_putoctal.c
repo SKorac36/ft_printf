@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 11:47:45 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/10 12:13:34 by skorac           ###   ########.fr       */
+/*   Created: 2018/07/10 12:30:33 by skorac            #+#    #+#             */
+/*   Updated: 2018/07/10 12:31:34 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putoctal(int n)
+void    ft_putoctal(int n)
 {
-    while (n >= 8)
+    if (n != 0)
     {
         ft_putoctal(n / 8);
         n = n % 8 + '0';
