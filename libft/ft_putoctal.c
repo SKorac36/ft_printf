@@ -6,18 +6,19 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 12:30:33 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/10 12:31:34 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/13 10:49:54 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putoctal(int n)
+void    ft_putoctal(unsigned int n)
 {
-    if (n != 0)
+    if (n >= 8)
     {
         ft_putoctal(n / 8);
         n = n % 8 + '0';
-        ft_putchar(n) ;
-    }
+	}
+	ft_putchar(n);
+  
 }

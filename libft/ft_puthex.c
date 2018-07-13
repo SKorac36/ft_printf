@@ -6,13 +6,13 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 12:31:46 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/10 12:32:40 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/13 10:48:57 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_puthex(int n)
+void    ft_puthex(unsigned int n)
 {
     if (n >= 16)
         ft_puthex(n / 16);
