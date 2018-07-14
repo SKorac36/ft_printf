@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/13 11:42:03 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/14 12:26:56 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,29 @@ void		ft_printf(const char* format, ...)
     {
         if (*format == '%' && *(format + 1) == 'd')
 			ft_putnbr(va_arg(args, int));
-		else if(*format == '%' && *(format + 1) == 'c')
+		else if(*format == '%' && ((*(format + 1) == 'c') || *(format + 1) == 'C'))
 			ft_putchar(va_arg(args, int));
 		else if(*format == '%' && *(format + 1) == 'i')
 			ft_putnbr(va_arg(args, int));
 		else if(*format == '%' && *(format + 1) == 's')
 			ft_putstr(va_arg(args, char *));
 		else if (*format == '%' && *(format + 1) == '%')
-			ft_putchar(va_arg(args, int));
+		{
+			ft_putchar('%');
+			++format;
+		}
 		else if (*format == '%' && *(format + 1) == 'u')
 			ft_putnbr(va_arg(args, unsigned int));
 		else if (*format == '%' && *(format + 1) == 'o')
 			ft_putoctal(va_arg(args, int));
 		else if (*format == '%' && ((*(format + 1) == 'x') || *(format + 1) == 'X'))
+			
 			ft_puthex(va_arg(args, int));
+		else if (*format == '%' && *(format + 1) == 'p')
+		{
+			ft_putstr("0x");
+			ft_puthex(va_arg(args, int));
+		}
 		else if (*format && *(format - 1) != '%')
             ft_putchar(*format);
 		++format;
@@ -50,11 +59,12 @@ void		ft_printf(const char* format, ...)
 
 int main(void)
 {
-	printf("1 %u\n", 65);
-	ft_printf("2 %c\n", 65);
+	int str[5] = {1, 2, 4, 5, 6};
+	ft_printf("1 %p\n",65);
+	printf("2 %C\n", 65);
 	ft_printf("3 %i\n", 65);
-	ft_printf("4 %s\n", "65");
-	ft_printf("5 %%\n");
+	printf("4 %S\n", str);
+	ft_printf("5 %% \n");
 	ft_printf("6 %o\n", 65);
 	ft_printf("7 %x\n", 65);
 	ft_printf("8 %X\n", 65);
