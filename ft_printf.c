@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/14 12:26:56 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/20 12:07:51 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void		ft_printf(const char* format, ...)
 		else if (*format == '%' && *(format + 1) == 'o')
 			ft_putoctal(va_arg(args, int));
 		else if (*format == '%' && ((*(format + 1) == 'x') || *(format + 1) == 'X'))
-			
 			ft_puthex(va_arg(args, int));
 		else if (*format == '%' && *(format + 1) == 'p')
 		{

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   checkflags.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 12:31:46 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/20 12:11:35 by skorac           ###   ########.fr       */
+/*   Created: 2018/07/20 09:16:04 by skorac            #+#    #+#             */
+/*   Updated: 2018/07/20 12:55:38 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
+#include "ft_printf.h"
 
-void    ft_puthex(unsigned int n)
+void	checkflags(const char *flags)
 {
-	if (n >= 16)
-        ft_puthex(n / 16);
-    n = n % 16;
-    n += n < 10 ? '0' : 'a' - 10;
-    write(1, &n, 1);
+	while (*flags)
+	{
+		if (ft_strchr(flags, '#') != NULL)
+			HASHTAG = 1;
+		if (ft_strchr(flags, ' ') != NULL)
+			SPACE = 1;
+		if (ft_strchr(flags, '+') != NULL)
+			PLUS = 1;
+		if (ft_strchr(flags, '-') != NULL)
+			MINUS = 1;
+		if (ft_strchr(flags, '0') != NULL && MINUS == 0)
+			ZERO = 1;
+	}
 }
