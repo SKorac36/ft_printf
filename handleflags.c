@@ -6,48 +6,81 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:29:40 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/20 12:22:01 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/27 10:30:58 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+//#include "ft_printf.h"
+#include "libft/libft.h"
+#include <stdio.h>
 
-
-
-char	*handlehashtag(char c)
+char	*handleplus(int arg)
 {
+	char *in;
+	char *ret;
+
+	in = ft_itoa(arg);
+	ret = ft_strjoin("+", in);
+	if (arg <= 0)
+		return (in);
+	return (ret);
 	
-	if (HASHTAG == 1)
-	{
-		if (c == 'x')
-			return ("0x")	
-		else if (c == 'X')
-			return ("0X");
-		else if (c == 'o')
-			return ("0");
-	}
-	return (NULL);
 }
 
-char	handleplus(va_list arg)
+char	*handlespace(int arg)
 {
-	if (PLUS == 1)
+	char *in;
+
+	in = ft_itoa(arg);
+	if (arg < 0)
+		return (in);
+	return(ft_strjoin(" ", in));
+
+}
+char	*handlepound(int arg, char type)
+{
+	char *in;
+	
+	in = ft_itoa(arg);
+	if (type == 'x')
+		return (ft_strjoin("0x", in));
+	else if (type == 'X')
+		return (ft_strjoin("0X", in));
+	else if (type == 'o')
+		return (ft_strjoin("0", in));
+	return (in);
+	
+}
+
+char	*handlezero(char *str)
+{
+	char *ret;
+	int i;
+
+	i = 0;
+	ret = (char *)malloc(sizeof(char) *(ft_strlen(str + 1)));
+	while (str[i])
 	{
-		if (arg > 0)
-			return ('+');
+		if (str[i] == ' ')
+			ret[i] = '0';
 		else
-			return ('-');
+			ret[i] = str[i];
+		i++;
 	}
-	return (NULL);
+	ret[i] = '\0';
+	return (ret);
 }
 
-char	*handlespace(va_list arg)
+int	main()
 {
-	
-	
-	if (SPACE == 1)
-	{
-		
-	}
-}
+	char *p = handleplus(87);
+	char *s = handlespace(78);
+	char *h = handlepound(8, '6');
+	char *z = handlezero("   78");
 
+	ft_putendl(p);
+	ft_putendl(s);
+	ft_putendl(h);
+	ft_putendl(z);
+	return (0);
+}
