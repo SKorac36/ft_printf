@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 09:38:31 by skorac            #+#    #+#             */
-/*   Updated: 2018/06/26 08:49:55 by skorac           ###   ########.fr       */
+/*   Updated: 2018/07/26 10:20:29 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	else
 		return (NULL);
+}
+
+int	main()
+{
+	char *str;
+
+	str = ft_itoa(7);
+	ft_putendl(ft_strjoin("+", str));
+	return (0);
 }
