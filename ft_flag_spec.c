@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkflags.c                                       :+:      :+:    :+:   */
+/*   ft_flag_spec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/20 09:16:04 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/02 15:05:02 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/02 15:01:12 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/02 15:07:46 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	checkflags(const char *fmt)
+void	ft_flag_spec(char *p, t_arg_form *arg)
 {
-	char *f;
+	int i;
 
-	if (!(f = extractformat(fmt))
+	i = 0;
+	while (p[i])
+	{
+		if (ft_strchr(MOD_SPEC, p[i]))
+		{
+			arg->specifier = p[i];
+			break ;
+		}
+		else
+			i++;
+	}
 }

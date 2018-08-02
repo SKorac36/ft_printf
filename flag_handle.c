@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkflags.c                                       :+:      :+:    :+:   */
+/*   flag_handle.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/20 09:16:04 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/02 15:05:02 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/02 14:21:51 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/02 15:29:01 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
-
-void	checkflags(const char *fmt)
+int		flag_handle(char *flag)
 {
-	char *f;
+	t_arg_form	*arg;
 
-	if (!(f = extractformat(fmt))
+	arg = initflag(void);
+	ft_flag(flag, arg);
+	ft_width(flag, arg);
+	ft_precision(flag, arg);
+	ft_length(flag, arg);
+	ft_specifier(flag, arg);
+	return (36);
 }
