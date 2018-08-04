@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_handleeye.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/27 08:49:07 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/27 08:49:48 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/04 12:12:16 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/04 12:20:05 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_wchar(wchar_t c)
+#include "libft/libft.h"
+#include "ft_printf.h"
+
+void	ft_handleeye(int i)
 {
-	write(1, &c, 1);
+	char *tmp;
+	int n;
+
+	tmp = ft_itoa(i);
+	if (tmp[0] == "0")
+	{
+		if (tmp[1] == "x")
+			ft_puthex(i);
+		else
+			ft_putoctal(i);
+	}
+	else
+		ft_putnbr(i);
 }

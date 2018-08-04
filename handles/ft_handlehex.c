@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_handlehex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/04 12:38:34 by skorac           ###   ########.fr       */
-/*   Updated: 2018/07/27 11:27:23 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/04 12:30:50 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/04 12:40:03 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft/libft.h"
+#include "ft_printf.h"
 
-int main(void)
+void	ft_handlehex(unsigned int num, t_arg_form *form)
 {
-	printf("%C", "n");
-	return (0);
+	if (form->specifier == 'X')
+		ft_puthex(num);
+	else if (form->specifier == 'x')
+		ft_puthex(num);
 }

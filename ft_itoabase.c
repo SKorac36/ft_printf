@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:31:43 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/02 14:09:13 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/04 12:02:14 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,4 @@ char    *ft_itoabase(int n, int base)
        else
                ret[i++] = (char)((num % base) + 48);
        return (ret);
-}
-
-int		main()
-{
-	printf("%s\n", ft_itoabase(7549, 13));
-	return (0);
 }

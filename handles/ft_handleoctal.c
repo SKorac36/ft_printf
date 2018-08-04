@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_handleoctal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/27 08:47:47 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/27 08:48:44 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/04 12:21:01 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/04 12:25:28 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
+#include "ft_printf.h"
 
-void    ft_wcharstr(wchar_t *str)
+void	ft_handleoctal(unsigned int n)
 {
-    while (*str)
-        write(1, str++, 1);
+	ft_putoctal(n);
 }
