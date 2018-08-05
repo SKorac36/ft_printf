@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:14:40 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/04 12:36:48 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/05 13:37:32 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ size_t	ft_numlen(int nbr);
 char	*ft_itoabase(int n, int base);
 void	ft_handleint(int n);
 void	ft_handleptr(char *str);
+void	ft_handleeye(int i);
+void	ft_handlehex(unsigned int num, t_arg_form *form);
+void	ft_handleoctal(unsigned int n);
+void	ft_handleper(void);
+void	ft_handlestr(char *str);
+void	ft_handleunsignedint(unsigned int i);
+void	ft_handlewchr(wchar_t c);
+void	ft_handlewstr(wchar_t *str);
+
 #endif
