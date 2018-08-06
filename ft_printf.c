@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/20 12:07:51 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:22:46 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,16 @@ void		ft_printf(const char* format, ...)
 
 int main(void)
 {
+	int a;
+	a = 0;
+	int *ptr;
+
+	ptr = &a;
 	int str[5] = {1, 2, 4, 5, 6};
-	ft_printf("1 %p\n",65);
+	printf("1 %p\n", 75);
 	printf("2 %C\n", 65);
 	ft_printf("3 %i\n", 65);
-	printf("4 %S\n", str);
+//:	printf("4 %S\n", str);
 	ft_printf("5 %% \n");
 	ft_printf("6 %o\n", 65);
 	ft_printf("7 %x\n", 65);

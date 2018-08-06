@@ -6,15 +6,13 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 09:51:24 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/05 13:43:43 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/06 09:40:52 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft/libft.h"
-#include <stdio.h>
 
-unsigned int		findpercent(const char *str)
+unsigned int	findpercent(const char *str)
 {
 	unsigned int i;
 
@@ -27,34 +25,22 @@ unsigned int		findpercent(const char *str)
 	return (i);
 }
 
-size_t	findlen(const char *str)
+size_t			findlen(const char *str)
 {
 	size_t n;
 
 	n = 1;
-	if (str[n] == '%')
-		n++;
-	while (ft_isalpha(str[n]) == 0 )
+	while (ft_isalpha(str[n]) == 0)
 		   n++;
 	return (n);
 }
 
-char	*extractformat(const char *str)
+char			*extractformat(const char *str)
 {
 	char *ret;
 
+	if (str[findpercent(str)] + 1 == '%')
+		return ("%");
 	ret = ft_strsub(str, findpercent(str) + 1, findlen(str));
 	return (ret);
-}
-
-
-int		main()
-{
-	const char *str;
-	char	*ret;
-
-	str = "%%";
-	ret = extractformat(str);
-	printf("%s\n", ret);
-	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:12:16 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/05 13:28:31 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:34:02 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleeye(int i)
+void	ft_handleeye(const char **format, va_list *args, t_arg_form *arg)
 {
 	char *tmp;
 	int n;

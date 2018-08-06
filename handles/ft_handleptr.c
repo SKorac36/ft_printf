@@ -6,33 +6,21 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 11:21:36 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/04 12:00:40 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:12:40 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleptr(char *str)
+void	ft_handleptr(const char **format, va_list *args, t_arg_form *arg)
 {
+	(void)format;
 	long temp;
-
-	temp = (long)str;
+	
+	temp = (long)va_arg(args, char *);
 	ft_putstr("0x");
 	ft_putstr(ft_itoabase(temp, 16));
 	ft_puthex(temp);
 
-}
-
-int		main()
-{
-	char *ptr;
-	char a;
-
-	a = '1';
-	ptr = &a;
-	ft_handleptr(ptr);
-	write(1, "\n", 1);
-	printf("%p\n", ptr);
-	return (0);
 }

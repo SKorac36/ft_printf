@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_changelength.c                                  :+:      :+:    :+:   */
+/*   ft_getsigned.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 14:39:17 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/06 13:12:16 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/06 10:27:31 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/06 10:37:31 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-#include <sys/types.h>
-#include <stdarg.h>
-#include "handle_funcs.h"
-
-uintmax_t	ft_giveunsigned(va_list *args, t_arg *arg)
+static intmax_t		ft_getsigned(va_list *args, t_arg *arg)
 {
-	uintmax_t nbr;
+	intmax_t nbr;
 
-	nbr = va_arg(*args, uintmax_t);
+	nbr = va_arg(*args, intmax_t);
 	if (arg->length == hh)
-		nbr = (unsigned char)nbr;
+		nbr = (signed char)nbr;
 	else if (arg->length == h)
-		nbr = (unsigned short int)nbr;
+		nbr = (short int)nbr;
 	else if (arg->length == l)
-		nbr = (unsigned long int)nbr;
+		nbr = (long int)nbr;
 	else if (arg->length == ll)
-		nbr = (unsigned long long int)nbr;
+		nbr = (long long int)nbr;
 	else if (arg->length == j)
-		nbr = (uintmax_t)nbr;
+		nbr = (intmax_t)nbr;
 	else if (arg->length == z)
 		nbr = (size_t)nbr;
 	else
-		nbr = (unsigned int)nbr;
+		nbr = (int)nbr;
 	return (nbr);
 }

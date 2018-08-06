@@ -6,14 +6,16 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 11:37:12 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/05 13:31:17 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/06 13:59:18 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handlestr(char *str)
+void	ft_handlestr(const char **format, va_list *args, t_arg_form *arg)
 {
-	ft_putstr(str);
+	(void)format;
+	(void)arg;
+	ft_putstr(va_arg(args, char *));
 }
