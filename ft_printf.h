@@ -32,7 +32,7 @@ size_t	ft_numlen(int nbr);
 char	*ft_itoabase(int n, int base);
 void	ft_handleint(int n);
 void	ft_handleptr(char *str);
-void	ft_handleeye(int i);
+void	ft_handleeye(char *);
 void	ft_handlehex(unsigned int num, t_arg_form *form);
 void	ft_handleoctal(unsigned int n);
 void	ft_handleper(void);
@@ -40,5 +40,5 @@ void	ft_handlestr(char *str);
 void	ft_handleunsignedint(unsigned int i);
 void	ft_handlewchr(wchar_t c);
 void	ft_handlewstr(wchar_t *str);
-
+static intmax_t	ft_getsigned(va_list *args, t_arg *arg);
 #endif
