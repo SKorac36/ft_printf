@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handleeye.c                                     :+:      :+:    :+:   */
+/*   flag_handle.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 12:12:16 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/06 14:34:02 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/02 14:21:51 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/06 09:41:31 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../ft_printf.h"
-
-void	ft_handleeye(const char *fmt, va_list *args, t_arg_form *arg)
+int		flag_handle(char *flag)
 {
-	char *tmp;
-	intmax_t n;
+	t_arg_form	*arg;
 
-	(void)fmt;
-	n = ft_getsigned(args, arg);
-	tmp = ft_itoa(n);
-	if (tmp[0] == "0")
-	{
-		if (tmp[1] == "x")
-			ft_puthex(n);
-		else
-			ft_putoctal(n);
-	}
-	else
-		ft_putnbr(n);
+	arg = initflag(void);
+	ft_flag(flag, arg);
+	ft_width(flag, arg);
+	ft_precision(flag, arg);
+	ft_length(flag, arg);
+	ft_specifier(flag, arg);
+	return (36);
 }
