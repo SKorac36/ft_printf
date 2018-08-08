@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 09:51:24 by skorac            #+#    #+#             */
-/*   Updated: 2018/07/31 10:41:01 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/08 10:41:43 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ unsigned int		findpercent(const char *str)
 	return (i);
 }
 
-size_t	findlen(const char *str)
+size_t				findlen(const char *str)
 {
 	size_t n;
 
 	n = 1;
 	while (ft_isalpha(str[n]) == 0)
-		   n++;
+		n++;
 	return (n);
 }
 
-char	*extractformat(const char *str)
+char				*extractformat(const char *str)
 {
 	char *ret;
 
