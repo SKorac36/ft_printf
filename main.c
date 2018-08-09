@@ -15,6 +15,9 @@
 
 int main(void)
 {
-	printf("%+d\n", 0);
+	long l;
+
+	l = 123495;
+	printf("%+lD \n", l);
 	return (0);
 }

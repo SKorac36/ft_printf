@@ -13,9 +13,16 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handlestr(const char **format, va_list *args, t_arg_form *arg)
+size_t	ft_handlestr(const char **format, va_list *args, t_arg_form *arg)
 {
+	size_t len;
+	char	*str;
+
 	(void)format;
 	(void)arg;
-	ft_putstr(va_arg(args, char *));
+	str = va_arg(*args, char *);	 
+	len = ft_strlen(str);
+	arg->width = len;
+	ft_putstr(str);
+	return (len);
 }

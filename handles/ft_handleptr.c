@@ -13,14 +13,15 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleptr(const char **format, va_list *args, t_arg_form *arg)
+size_t	ft_handleptr(const char **format, va_list *args, t_arg_form *arg)
 {
-	(void)format;
-	long temp;
+	uintmax_t temp;
+	size_t len;
 	
-	temp = (long)va_arg(args, char *);
+	(void)format;
+	len = ft_strlen(ft_itoabase) + 2;
+	temp = ft_changelength(va_arg(args, arg));
 	ft_putstr("0x");
 	ft_putstr(ft_itoabase(temp, 16));
-	ft_puthex(temp);
-
+	return (len);
 }

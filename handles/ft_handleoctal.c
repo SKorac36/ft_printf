@@ -13,7 +13,9 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleoctal(unsigned int n)
+size_t	ft_handleoctal(va_list *args, t_arg_form *arg, char **format)
 {
-	ft_putoctal(n);
+	uintmax_t n;
+
+	(void)format;
 }

@@ -50,7 +50,7 @@ int		main()
 	const char *str;
 	char	*ret;
 
-	str = "  %+      i";
+	str = "  %+lli";
 	ret = extractformat(str);
 	printf("%s\n", ret);
 	return (0);

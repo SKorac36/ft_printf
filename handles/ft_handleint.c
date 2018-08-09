@@ -23,6 +23,7 @@ void	ft_handleint(const char **format, va_list *args, t_arg_form *arg)
 	{
 		if (nbr >= 0)
 		{
+			if (arg->flag_sign
 			ft_putchar("+");
 			ft_putnbr(nbr);
 		}
