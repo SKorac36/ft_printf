@@ -22,5 +22,7 @@ t_arg_form	*ft_initflags(void)
 	ret->flag_zero = 0;
 	ret->flag_space = 0;
 	ret->flag_pound = 0;
+	ret->specifier = '~';
+	ret->length = '~';
 	return (ret);
 }

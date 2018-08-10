@@ -13,10 +13,21 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handlehex(unsigned int num, t_arg_form *form)
+size_t	ft_handlehex(va_list *args, t_arg_form *arg, const char **format)
 {
-	if (form->specifier == 'X')
-		ft_puthex(num);
-	else if (form->specifier == 'x')
-		ft_puthex(num);
+	uintmax_t n;
+	
+	void(format);
+	n = ft_changelength(args, arg);
+	if (arg->specifier = 'X')
+	{
+		ft_putstr("0X");
+		ft_puthex(n);
+	}
+	else
+	{
+		ft_putstr("0x");
+		ft_puthex(n);
+	}
+	return (ft_numlen(n));
 }

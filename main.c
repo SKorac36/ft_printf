@@ -15,9 +15,7 @@
 
 int main(void)
 {
-	long l;
-
-	l = 123495;
-	printf("%+lD \n", l);
+	int p = printf("%D", 9);
+	printf("%d\n", p);
 	return (0);
 }

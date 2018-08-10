@@ -13,21 +13,20 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleint(const char **format, va_list *args, t_arg_form *arg)
+size_t	ft_handleint(va_list *args, t_arg_form *argm const char **format)
 {
-	(void)format;
 	intmax_t nbr;
-
-	nbr = va_arg(args, int);
+	size_t len;
+	
+	(void)format;
+	nbr = ft_getsigned(args, arg);
+	len = ft_getnum(nbr);
 	if (arg->flag_plus)
 	{
+		len += 1;
 		if (nbr >= 0)
-		{
-			if (arg->flag_sign
 			ft_putchar("+");
-			ft_putnbr(nbr);
-		}
-		else
-			ft_putnbr(nbr);
+		ft_putnbr(nbr);
 	}
+	return (len);
 }

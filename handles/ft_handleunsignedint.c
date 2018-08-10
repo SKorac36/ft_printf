@@ -13,7 +13,12 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_handleunsignedint(unsigned int i)
+size_t	ft_handleunsignedint(va_list *args, t_arg_form *arg, char **format)
 {
-	ft_putnbr(i);
+	uintmax_t n;
+
+	(void)format;
+	n = ft_getlength(args, arg);
+	ft_putnbr(n);
+	return (ft_numlen(n));
 }

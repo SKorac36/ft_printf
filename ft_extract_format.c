@@ -27,12 +27,15 @@ unsigned int		findpercent(const char *str)
 	return (i);
 }
 
-size_t				findlen(const char *str)
+size_t			findlen(const char *str, t_arg_form *arg )
 {
-	size_t n;
+	size_t	n;
+	char	c;
 
+
+	c = arg->specifier;
 	n = 1;
-	while (ft_isalpha(str[n]) == 0)
+	while (str[n] != c)
 		n++;
 	return (n);
 }

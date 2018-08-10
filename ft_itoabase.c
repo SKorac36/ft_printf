@@ -13,43 +13,21 @@
 #include "libft/libft.h"
 #include <stdio.h>
 #include <libc.h>
+#include "ft_printf.h"
 
-size_t	ft_numlen(int nbr)
+char	*ft_itoabase(uintmax_t val, int base)
 {
-	int		n;
-	size_t	i;
+	static char	buf[32] = "0";
+	int			i;
 
-	n = nbr;
-	i = 1;
-	while (n /= 10)
-		i++;
-	return (i);
-}
-
-char	*ft_itoabase(int n, int base)
-{
-	int				num;
-	int				len;
-	static char		*ret;
-	static int		i;
-
-	i = 0;
-	num = n;
-	len = ft_numlen(n);
-	if (!(ret = ft_strnew(len + 1)))
-		return (NULL);
-	ret[len--] = '\0';
-	if (num < 0)
+	i = 30;
+	if (val == 0)
+		return (ft_strdup("0"));
+	while (val > 0 && i > 0)
 	{
-		num *= -1;
-		ret[i] = '-';
-		i++;
+		buf[i] = "0123456789abcdef"[val % base];
+		val = val / base;
+		--i;
 	}
-	if (num > base)
-		ft_itoabase(num / base, base);
-	if (num % base > 9)
-		ret[i++] = (char)((num % base) + 87);
-	else
-		ret[i++] = (char)((num % base) + 48);
-	return (ret);
+	return (buf + i + 1);
 }

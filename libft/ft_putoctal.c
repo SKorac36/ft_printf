@@ -14,11 +14,11 @@
 
 void    ft_putoctal(unsigned int n)
 {
-    if (n >= 8)
-    {
-        ft_putoctal(n / 8);
-        n = n % 8 + '1';
+	if (n >= 8)
+	{
+		ft_putoctal(n / 8);
+		ft_putoctal(n % 8);
 	}
-	ft_putchar(n);
-  
+	else
+		ft_putchar(n + 48);
 }

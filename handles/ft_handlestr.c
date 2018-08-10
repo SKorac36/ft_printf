@@ -21,8 +21,11 @@ size_t	ft_handlestr(const char **format, va_list *args, t_arg_form *arg)
 	(void)format;
 	(void)arg;
 	str = va_arg(*args, char *);	 
-	len = ft_strlen(str);
-	arg->width = len;
+	len = ft_strlen(str) + arg->width;
+	if (arg->width != 0 && arg->flag_left_just == 0)
+		ft_pad(ft_strlen, arg);
 	ft_putstr(str);
+	if (arg->width != 0 && arg->flag_left_just)
+		ft_pad(ft_strlen, arg);
 	return (len);
 }

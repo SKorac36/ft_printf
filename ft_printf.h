@@ -23,22 +23,22 @@ typedef	struct	s_arg_form
 	int		flag_space;
 	int		flag_pound;
 	unsigned int	width;
-	unsigned int	precision;
 	char			length;
 	char			specifier;
 }			t_arg_form;
 
-size_t	ft_numlen(int nbr);
+size_t	ft_numlen(uintmax_t nbr);
 char	*ft_itoabase(int n, int base);
-void	ft_handleint(int n);
+void	ft_handleint(voi);
 void	ft_handleptr(char *str);
 void	ft_handleeye(char *);
-void	ft_handlehex(unsigned int num, t_arg_form *form);
-void	ft_handleoctal(unsigned int n);
-void	ft_handleper(void);
-void	ft_handlestr(char *str);
-void	ft_handleunsignedint(unsigned int i);
+size_t	ft_handlehex(va_list *args, t_arg_form *arg, const char **format);
+size_t	ft_handleoctal(va_list *arg, t_arg_form *arg, const char **format);
+size_t	ft_handleper(va_list *args, t_arg_form *arg, const char **format);
+size_t	ft_handlestr(va_list *args, t_arg_form *arg, const char **format);
+size_t	ft_handleunsignedint(va_list *args, t_arg_form *arg, const char **format);
 void	ft_handlewchr(wchar_t c);
-void	ft_handlewstr(wchar_t *str);
+void	ft_handlewstr(va_list *args, t_arg_form *arg, const char **format);
 static intmax_t	ft_getsigned(va_list *args, t_arg *arg);
+
 #endif

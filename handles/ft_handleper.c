@@ -13,12 +13,15 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-size_t	ft_handleper(const char **format, va_list *args, t_arg_form *arg)
+size_t	ft_handleper(va_list *args, t_arg_form *arg, const char **format)
 {
 	(void)format;
 	(void)args;
 	(void)arg;
-	arg->width = 1;
+	if (arg->width != 0 && arg->flag_left_just == 0)
+		ft_pad(1, arg);
 	ft_putchar("%");
-	return (arg->width);
+	if (arg->width != 0 && arg->flag_left_just)
+		ft_pad(1, arg);
+	return (arg->width + 1);
 }

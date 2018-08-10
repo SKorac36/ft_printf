@@ -20,7 +20,7 @@ size_t	ft_handleptr(const char **format, va_list *args, t_arg_form *arg)
 	
 	(void)format;
 	len = ft_strlen(ft_itoabase) + 2;
-	temp = ft_changelength(va_arg(args, arg));
+	temp = ft_changelength(args, arg);
 	ft_putstr("0x");
 	ft_putstr(ft_itoabase(temp, 16));
 	return (len);
