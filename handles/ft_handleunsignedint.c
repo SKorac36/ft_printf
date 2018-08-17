@@ -6,19 +6,21 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:28:21 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/05 13:32:03 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/16 15:33:33 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-size_t	ft_handleunsignedint(va_list *args, t_arg_form *arg, char **format)
+size_t	ft_handleunsignedint(va_list *args, t_arg_form *arg)
 {
-	uintmax_t n;
+	uintmax_t	n;
+	char		*utoa;
+	size_t		len;
 
-	(void)format;
-	n = ft_getlength(args, arg);
-	ft_putnbr(n);
-	return (ft_numlen(n));
+	n = ft_giveunsigned(args, arg);
+	utoa = ft_utoabase(n, 10);
+	len = ft_strlen(utoa);
+	ft_putstr(utoa);
+	return (len);
 }

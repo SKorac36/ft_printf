@@ -18,7 +18,7 @@ OBJ = $(SRC:.c=.o)
 HEAD = libft.h 
 
 $(NAME): $(HEAD)
-	$(COM) -c $(FLAGS) $(SRC) -I $(HEAD)
+	$(COM) -c $(FLAGS) $(SRC) -I $(HEAD)						
 	ar -rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 

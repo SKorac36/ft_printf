@@ -5,29 +5,70 @@
 #                                                     +:+ +:+         +:+      #
 #    By: skorac <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/05/24 09:00:33 by skorac            #+#    #+#              #
-#    Updated: 2018/07/10 11:43:35 by skorac           ###   ########.fr        #
+#    Created: 2018/08/13 11:13:00 by skorac            #+#    #+#              #
+#    Updated: 2018/08/17 10:02:34 by skorac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+C = clang
+
 NAME = libftprintf.a
-COM  = gcc
-FLAGS = -Wall -Wextra -Werror
-SRC = *.c
-OBJ = $(SRC:.c=.o)
-HEAD = ft_printf.h 
 
-$(NAME): $(HEAD)
-	$(COM) -c $(FLAGS) $(SRC) -I $(HEAD)
-	ar -rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+FLAGS = -Wall -Wextra -Werror -O2
 
-all : $(NAME)
+LIBFT = libft
+
+DIR_S = handles
+
+DIR_O = temporary
+
+HEADER = include
+
+SOURCES = ft_extract_format.c \
+		  ft_flag_spec.c \
+		  ft_getsigned.c \
+		  ft_getunsigned.c \
+		  ft_handlechar.c \
+		  ft_handlehex.c \
+		  ft_handleint.c \
+		  ft_handlelong.c \
+		  ft_handleoctal.c \
+		  ft_handleptr.c \
+		  ft_handlestr.c \
+		  ft_handleunsignedint.c \
+		  ft_handlewchr.c \
+		  ft_handlewstr.c \
+		  ft_initflags.c \
+		  ft_printf.c \
+		  ft_putwstr.c \
+		  ft_utoabase.c \
+		  ft_handleper.c \
+		  ft_getsigned.c \
+		  ft_itoabase.c
+
+SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
+
+OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@make -C $(LIBFT)
+	@cp libft/libft.a ./$(NAME)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+
+$(DIR_O)/%.o: $(DIR_S)/%.c
+	@mkdir -p temporary
+	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJS)
+	@rm -rf $(DIR_O)
+	@make clean -C $(LIBFT)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
 
-re:	fclean all
+re: fclean all

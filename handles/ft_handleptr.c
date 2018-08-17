@@ -6,22 +6,21 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 11:21:36 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/06 14:12:40 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/14 12:47:18 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-size_t	ft_handleptr(const char **format, va_list *args, t_arg_form *arg)
+size_t	ft_handleptr(va_list *args, t_arg_form *arg)
 {
-	uintmax_t temp;
-	size_t len;
-	
-	(void)format;
-	len = ft_strlen(ft_itoabase) + 2;
-	temp = ft_changelength(args, arg);
+	char			*utoa;
+	unsigned long	c;
+
+	arg->length = l;
 	ft_putstr("0x");
-	ft_putstr(ft_itoabase(temp, 16));
-	return (len);
+	c = va_arg(*args, unsigned long);
+	utoa = ft_utoabase(c, 16);
+	ft_putstr(utoa);
+	return (ft_strlen(utoa) + 2);
 }

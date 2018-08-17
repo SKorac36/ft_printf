@@ -1,9 +1,25 @@
-#include "libft.h"
-#include "ft_print.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_handlelong.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/11 11:31:57 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/16 12:59:18 by skorac           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_handlelong(va_list *args, t_arg *arg, const char **format)
+#include "../include/ft_printf.h"
+
+size_t	ft_handlelong(va_list *args, t_arg_form *arg)
 {
 	arg->length = l;
-	arg->specifier = 'd';
-	return (ft_handleint(args, arg, format));
+	if (arg->specifier == 'D')
+		return (ft_handleunsignedint(args, arg));
+	if (arg->specifier == 'O')
+		return (ft_handleoctal(args, arg));
+	if (arg->specifier == 'U')
+		return (ft_handleunsignedint(args, arg));
+	return (0);
 }

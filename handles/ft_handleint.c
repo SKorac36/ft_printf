@@ -6,27 +6,21 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 11:41:18 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/06 14:13:48 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/16 14:24:09 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-size_t	ft_handleint(va_list *args, t_arg_form *argm const char **format)
+size_t	ft_handleint(va_list *args, t_arg_form *arg)
 {
-	intmax_t nbr;
-	size_t len;
-	
-	(void)format;
+	intmax_t	nbr;
+	char		*ret;
+	size_t		len;
+
 	nbr = ft_getsigned(args, arg);
-	len = ft_getnum(nbr);
-	if (arg->flag_plus)
-	{
-		len += 1;
-		if (nbr >= 0)
-			ft_putchar("+");
-		ft_putnbr(nbr);
-	}
+	ret = ft_itoabase(nbr, 10);
+	len = ft_strlen(ret);
+	ft_putstr(ret);
 	return (len);
 }

@@ -6,28 +6,32 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:30:50 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/05 13:29:40 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/17 10:12:23 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-size_t	ft_handlehex(va_list *args, t_arg_form *arg, const char **format)
+size_t	ft_handlehex(va_list *args, t_arg_form *arg)
 {
-	uintmax_t n;
-	
-	void(format);
-	n = ft_changelength(args, arg);
-	if (arg->specifier = 'X')
+	uintmax_t	n;
+	char		*utoa;
+	size_t		len;
+	int			i;
+
+	i = 0;
+	n = ft_giveunsigned(args, arg);
+	utoa = ft_utoabase(n, 16);
+	if (arg->specifier == 'X')
 	{
-		ft_putstr("0X");
-		ft_puthex(n);
+		while (utoa[i])
+		{
+			ft_putchar(ft_toupper(utoa[i]));
+			i++;
+		}
 	}
 	else
-	{
-		ft_putstr("0x");
-		ft_puthex(n);
-	}
-	return (ft_numlen(n));
+		ft_putstr(utoa);
+	len = ft_strlen(utoa);
+	return (len);
 }

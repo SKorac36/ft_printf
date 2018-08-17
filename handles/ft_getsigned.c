@@ -6,11 +6,13 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 10:27:31 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/06 10:37:31 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/16 12:55:34 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static intmax_t		ft_getsigned(va_list *args, t_arg *arg)
+#include "../include/ft_printf.h"
+
+intmax_t		ft_getsigned(va_list *args, t_arg_form *arg)
 {
 	intmax_t nbr;
 

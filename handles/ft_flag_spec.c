@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initflags.c                                     :+:      :+:    :+:   */
+/*   ft_flag_spec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 14:13:07 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/08 10:43:41 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/02 15:01:12 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/16 15:19:43 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-t_arg_form	*ft_initflags(void)
+void	ft_flag_spec(char *p, t_arg_form *arg)
 {
-	t_arg_form *ret;
+	size_t i;
 
-	ret = (ta_arg_form *)malloc(sizeof(ta_arg_form));
-	ret->flag_plus = 0;
-	ret->flag_left_just = 0;
-	ret->flag_zero = 0;
-	ret->flag_space = 0;
-	ret->flag_pound = 0;
-	ret->specifier = '~';
-	ret->length = '~';
-	return (ret);
+	i = 0;
+	while (p[i])
+	{
+		if (ft_strchr(MOD_SPEC, p[i]))
+		{
+			arg->specifier = p[i];
+			break ;
+		}
+		else
+			i++;
+	}
 }
