@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 07:20:42 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/17 10:11:19 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/17 10:31:24 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_doit(const char *format, t_arg_form *arg, size_t i)
 
 	fmt = ft_extractformat(format, i);
 	ft_flag_spec(fmt, arg);
+	ft_strdel(&fmt);
 }
 
 size_t	ft_printf(const char *format, ...)
