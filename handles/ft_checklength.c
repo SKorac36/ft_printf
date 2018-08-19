@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_spec.c                                     :+:      :+:    :+:   */
+/*   ft_checklength.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 15:01:12 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/16 15:19:43 by skorac           ###   ########.fr       */
+/*   Created: 2018/08/16 14:57:58 by skorac            #+#    #+#             */
+/*   Updated: 2018/08/16 15:55:11 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_flag_spec(char *p, t_arg_form *arg)
+void	ft_length_spec(char *p, t_arg_form *arg, size_t i)
 {
-	size_t i;
+	size_t n;
 
-	i = 0;
-	while (p[i])
+	n = 0;
+	while (p[n])
 	{
-		if (ft_strchr(MOD_SPEC, p[i]))
-		{
-			arg->specifier = p[i];
-			return(1);
+	 	if (ft_strchr(LEN_SPEC, p[n]))
+		{	
+			if (p[n] == 'h'  && p[n + 1] == 'h')
+				arg->length = hh;
+			else if (p[n] == 'l' && p[n + 1] == 'l')
+				arg->length = ll;
+			else 
+				arg->length = p[n];
+			break ;
 		}
 		else
-			i++;
+			n++;
 	}
-	return (0);
+	if (arg->length == ll || arg->length == hh)
+		i += 2;
+	else if (arg->length != none)
+		i+= 1;
 }
+

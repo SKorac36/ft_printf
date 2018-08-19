@@ -6,7 +6,7 @@
 #    By: skorac <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 11:13:00 by skorac            #+#    #+#              #
-#    Updated: 2018/08/17 10:02:34 by skorac           ###   ########.fr        #
+#    Updated: 2018/08/16 15:12:20 by skorac           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ SOURCES = ft_extract_format.c \
 		  ft_utoabase.c \
 		  ft_handleper.c \
 		  ft_getsigned.c \
-		  ft_itoabase.c
+		  ft_itoabase.c \
+		  ft_checklength.c \
+		ft_putnstr.c 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

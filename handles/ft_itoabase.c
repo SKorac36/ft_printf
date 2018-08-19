@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:57:04 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/17 10:11:31 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/16 14:20:47 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char		*ft_itoabase(intmax_t value, int base)
 			neg = 1;
 		value *= -1;
 	}
+	if (i == 2147483647)
+		return("2147483647");
 	while (ft_pow(base, i) - 1 < value)
 		i++;
 	nbr = (char *)malloc(sizeof(nbr) * i);

@@ -6,7 +6,7 @@
 /*   By: skorac <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:30:50 by skorac            #+#    #+#             */
-/*   Updated: 2018/08/17 10:12:23 by skorac           ###   ########.fr       */
+/*   Updated: 2018/08/16 13:59:55 by skorac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_handlehex(va_list *args, t_arg_form *arg)
 			i++;
 		}
 	}
-	else
+	else	
 		ft_putstr(utoa);
 	len = ft_strlen(utoa);
 	return (len);
